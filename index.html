@@ -1,90 +1,192 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
+<!doctype html>
+<html lang="en">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260908-05-b9d8a99","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/9e99ecf74af2a081.telemetry_sdk.js" integrity="sha512-tZ7fmfTx2KpCLjXQnEuL9azQ4A5+7+xumsx6r/WYVD0zCP/8LP8hDeCypMQesmP+WyAew4g7l5Ah23Bjd6yoVg=="></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portofolio!</title>
+  <title>Minimalist Creative Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --ink: #181817;
+      --paper: #f2f0e9;
+      --stone: #d9d6cb;
+      --lime: #d7ff47;
+      --muted: #6f6c63;
     }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
-      line-height: 1.6;
-      padding: 40px 20px;
+      margin: 0;
+      width: 100%;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .display-font { font-family: "Fraunces", serif; }
+    .portfolio-shell { width: 100%; overflow: hidden; }
+    .nav-link {
+      text-decoration: none;
+      transition: opacity 180ms ease;
     }
-    header {
-      text-align: center;
-      padding-bottom: 40px;
-      border-bottom: 1px solid #334155;
+    .nav-link:hover { opacity: .55; }
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      text-decoration: none;
+      transition: gap 200ms ease, transform 200ms ease;
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #38bdf8;
-      margin-bottom: 10px;
+    .arrow-link:hover { gap: 1rem; transform: translateX(3px); }
+    .hero-image-frame {
+      clip-path: polygon(8% 0, 100% 0, 100% 90%, 91% 100%, 0 100%, 0 9%);
     }
-    p.subtitle {
-      color: #94a3b8;
-      font-size: 1.1rem;
+    .project-card {
+      transition: transform 240ms ease, box-shadow 240ms ease;
     }
-    section {
-      margin-top: 40px;
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 40px rgba(24, 24, 23, .13);
     }
-    h2 {
-      color: #38bdf8;
-      margin-bottom: 20px;
+    .project-card img { transition: transform 500ms ease; }
+    .project-card:hover img { transform: scale(1.045); }
+    .reveal {
+      animation: rise-in 700ms cubic-bezier(.2,.8,.2,1) both;
     }
-    .card {
-      background-color: #1e293b;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border: 1px solid #334155;
+    .reveal-delay { animation-delay: 130ms; }
+    .reveal-delay-2 { animation-delay: 240ms; }
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .card h3 {
-      color: #f1f5f9;
-      margin-bottom: 8px;
-    }
-    .card p {
-      color: #94a3b8;
+    @media (max-width: 767px) {
+      .hero-image-frame { clip-path: none; }
     }
   </style>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <h1>Xiocio</h1>
-      <p class="subtitle">Desainer / Developer / Kreator</p>
-    </header>
-
-    <section id="about">
-      <h2>Tentang Saya</h2>
-      <div class="card">
-        <p>i like design edit video and sketch!</p>
+  <script src="/_sdk/fbe2ebfd64647c54.data_sdk.js" type="text/javascript" integrity="sha512-vkTX6CfvpHc3WbjK+tFJCaDuw4ERA4aEV/e5/7+MMJPMTF4RJYCI6CAwJBT/gtDW+dba4uLSsPUgDjVDHWtgUQ=="></script>
+  <script src="/_sdk/fcb6dc01f91829ac.resizing_sdk.js" type="text/javascript" integrity="sha512-YK8JfnN705qaEaVhiL7pcVB2Rs/BbdX5yxV55Az8zT/1JanyEWTw9HqCF915m9iV1YEaoil8qsjJz03l1Kb0Ug=="></script>
+ </head>
+ <body data-template-id="__page-root">
+  <div class="portfolio-shell">
+   <header class="w-full border-b border-[#181817] bg-[#f2f0e9]">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-10" aria-label="Primary navigation">
+     <a href="#top" data-template-id="brand-name" class="canva-link nav-link font-semibold tracking-[-0.03em]"></a>
+     <div class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.12em] md:gap-7">
+      <a href="#work" data-template-id="nav-work" class="canva-link nav-link"></a> <a href="#about" data-template-id="nav-about" class="canva-link nav-link hidden sm:block"></a> <a href="#contact" data-template-id="nav-contact" class="canva-link nav-link"></a>
+     </div>
+    </nav>
+   </header>
+   <main id="top">
+    <section class="w-full border-b border-[#181817] px-5 py-8 md:px-10 md:py-12">
+     <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+      <div class="order-2 flex flex-col justify-between lg:order-1">
+       <div class="reveal">
+        <p data-template-id="hero-eyebrow" class="canva-tag mb-8 inline-block border border-[#181817] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em]"></p>
+        <h1 data-template-id="hero-title" class="canva-text display-font max-w-3xl leading-[0.93] tracking-[-0.06em]"></h1>
+       </div>
+       <div class="reveal reveal-delay mt-10 max-w-xl">
+        <p data-template-id="hero-description" class="canva-text leading-relaxed"></p><a href="mailto:hello@example.com?subject=Project%20inquiry" target="_blank" rel="noopener noreferrer" data-template-id="hero-cta" class="canva-link arrow-link mt-7 border-b border-[#181817] pb-2 font-semibold"></a>
+       </div>
       </div>
+      <div class="hero-image-frame reveal reveal-delay-2 relative overflow-hidden bg-[#d7ff47]">
+       <img data-template-id="hero-workspace-image" loading="lazy" class="canva-image h-[360px] w-full object-cover md:h-[550px]">
+       <div class="absolute bottom-0 left-0 bg-[#d7ff47] px-4 py-3 text-xs font-semibold uppercase tracking-[0.11em]">
+        <span data-template-id="hero-image-caption" class="canva-text"></span>
+       </div>
+      </div>
+     </div>
     </section>
-
-    <section id="projects">
-      <h2>Proyek & Karya</h2>
-      <div class="card">
-        <h3>xio 1</h3>
-        <p>THIS is my masterpiece</p>
+    <section class="w-full border-b border-[#181817] bg-[#181817] px-5 py-0 text-[#f2f0e9] md:px-10">
+     <div class="mx-auto grid max-w-7xl md:grid-cols-3">
+      <div data-template-id="discipline-video" class="canva-panel border-b border-[#f2f0e9]/30 py-7 md:border-b-0 md:border-r md:px-8 md:first:pl-0">
+       <span class="text-xs font-semibold tracking-[0.14em] text-[#d7ff47]">01</span>
+       <h2 data-template-id="discipline-video-title" class="canva-text display-font mt-3 tracking-[-0.04em]"></h2>
+       <p data-template-id="discipline-video-text" class="canva-text mt-2 text-sm leading-relaxed text-[#f2f0e9]/70"></p>
       </div>
-      <div class="card">
-        <h3>xio 2</h3>
-        <p>Deskripsi singkat karya lainnya.</p>
+      <div data-template-id="discipline-code" class="canva-panel border-b border-[#f2f0e9]/30 py-7 md:border-b-0 md:border-r md:px-8">
+       <span class="text-xs font-semibold tracking-[0.14em] text-[#d7ff47]">02</span>
+       <h2 data-template-id="discipline-code-title" class="canva-text display-font mt-3 tracking-[-0.04em]"></h2>
+       <p data-template-id="discipline-code-text" class="canva-text mt-2 text-sm leading-relaxed text-[#f2f0e9]/70"></p>
       </div>
+      <div data-template-id="discipline-art" class="canva-panel py-7 md:px-8 md:pr-0">
+       <span class="text-xs font-semibold tracking-[0.14em] text-[#d7ff47]">03</span>
+       <h2 data-template-id="discipline-art-title" class="canva-text display-font mt-3 tracking-[-0.04em]"></h2>
+       <p data-template-id="discipline-art-text" class="canva-text mt-2 text-sm leading-relaxed text-[#f2f0e9]/70"></p>
+      </div>
+     </div>
     </section>
+    <section id="work" class="w-full px-5 py-16 md:px-10 md:py-24">
+     <div class="mx-auto max-w-7xl">
+      <div class="mb-10 flex items-end justify-between border-b border-[#181817] pb-5 md:mb-14">
+       <div>
+        <p data-template-id="work-eyebrow" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em]"></p>
+        <h2 data-template-id="work-title" class="canva-text display-font mt-3 tracking-[-0.055em]"></h2>
+       </div><span data-template-id="work-index" class="canva-text hidden text-xs font-semibold uppercase tracking-[0.12em] sm:block"></span>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+       <article data-template-id="project-video-card" class="canva-card project-card overflow-hidden border border-[#181817] bg-[#e0ddd3]">
+        <div class="h-64 overflow-hidden">
+         <img data-template-id="project-video-image" loading="lazy" class="canva-image h-full w-full object-cover">
+        </div>
+        <div class="p-5">
+         <p data-template-id="project-video-category" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em]"></p>
+         <h3 data-template-id="project-video-title" class="canva-text display-font mt-3 tracking-[-0.04em]"></h3>
+         <p data-template-id="project-video-description" class="canva-text mt-3 text-sm leading-relaxed"></p>
+        </div>
+       </article>
+       <article data-template-id="project-code-card" class="canva-card project-card flex min-h-[380px] flex-col justify-between border border-[#181817] bg-[#d7ff47] p-5">
+        <div class="flex items-start justify-between">
+         <p data-template-id="project-code-category" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em]"></p><i data-lucide="braces" class="h-6 w-6" aria-hidden="true"></i>
+        </div>
+        <div>
+         <div class="mb-5 h-px w-full bg-[#181817]"></div>
+         <h3 data-template-id="project-code-title" class="canva-text display-font tracking-[-0.05em]"></h3>
+         <p data-template-id="project-code-description" class="canva-text mt-3 max-w-xs text-sm leading-relaxed"></p>
+        </div>
+       </article>
+       <article data-template-id="project-art-card" class="canva-card project-card overflow-hidden border border-[#181817] bg-[#e0ddd3]">
+        <div class="h-64 overflow-hidden">
+         <img data-template-id="project-art-image" loading="lazy" class="canva-image h-full w-full object-cover">
+        </div>
+        <div class="p-5">
+         <p data-template-id="project-art-category" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em]"></p>
+         <h3 data-template-id="project-art-title" class="canva-text display-font mt-3 tracking-[-0.04em]"></h3>
+         <p data-template-id="project-art-description" class="canva-text mt-3 text-sm leading-relaxed"></p>
+        </div>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section id="about" class="w-full border-y border-[#181817] bg-[#d9d6cb] px-5 py-16 md:px-10 md:py-24">
+     <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-[.7fr_1.3fr]">
+      <p data-template-id="about-label" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em]"></p>
+      <div>
+       <h2 data-template-id="about-title" class="canva-text display-font max-w-4xl leading-[1.02] tracking-[-0.055em]"></h2>
+       <p data-template-id="about-description" class="canva-text mt-7 max-w-2xl leading-relaxed"></p>
+      </div>
+     </div>
+    </section>
+    <section id="contact" class="w-full bg-[#181817] px-5 py-16 text-[#f2f0e9] md:px-10 md:py-24">
+     <div class="mx-auto max-w-7xl">
+      <p data-template-id="contact-eyebrow" class="canva-tag text-xs font-semibold uppercase tracking-[0.13em] text-[#d7ff47]"></p>
+      <h2 data-template-id="contact-title" class="canva-text display-font mt-5 max-w-5xl leading-[0.94] tracking-[-0.06em]"></h2><a href="mailto:hello@example.com?subject=Project%20inquiry" target="_blank" rel="noopener noreferrer" data-template-id="contact-cta" class="canva-link arrow-link mt-10 border-b border-[#f2f0e9] pb-3 font-semibold"></a>
+     </div>
+    </section>
+   </main>
+   <footer class="w-full bg-[#181817] px-5 pb-7 md:px-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 border-t border-[#f2f0e9]/30 pt-5 text-xs uppercase tracking-[0.1em] text-[#f2f0e9]/60 sm:flex-row sm:justify-between">
+     <p data-template-id="footer-name" class="canva-text"></p>
+     <p data-template-id="footer-note" class="canva-text"></p>
+    </div>
+   </footer>
   </div>
-
-</body>
+  <script src="/_sdk/20ec72cea0cb85e1.editing_sdk.js" integrity="sha512-y1Lf0yXrnk1vqzLs9a/3x3pp+jSvei2Pbl+x/omYgN5b7HqLzMgs5Vx9HdgcQfw7jcDinPHCzHGQ6BsPf/68zQ=="></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+    });
+  </script>
+ </body>
 </html>
